@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<section class="hero-wrap hero-wrap-2" style="background-image: url('{% static 'images/bg_3.jpg' %}');" data-stellar-background-ratio="0.5">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row no-gutters slider-text align-items-end justify-content-center">
+      <div class="col-md-9 ftco-animate pb-5 text-center">
+        <h1 class="mb-3 bread">Our Privacy & Policy</h1>
+        <p class="breadcrumbs"><span class="mr-2"><a href="{% url 'index' %}">Home <i class="fa fa-chevron-right"></i></a></span> <span>Terms & Conditions <i class="fa fa-chevron-right"></i></span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<br>
+<br>
+
+<section class="content">
+    <div class="container">
+        <div class="row">
+        
+            <div class="col-md-12">
+
+                {% for trams in privacy_policy %}
+                <div class="content">
+                    <h3>{{ trams.title }}</h3>
+                    <p>{{ trams.content|safe }}</p>
+                </div>
+                {% endfor %}
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+
+{% endblock %}

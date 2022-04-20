@@ -1,0 +1,411 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+	<div class="hero-wrap js-fullheight" style="background-image: url('{% static 'images/bg_1.jpg' %}');" data-stellar-background-ratio="0.5">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row no-gutters slider-text js-fullheight align-items-center" data-scrollax-parent="true">
+				<div class="col-md-8 ftco-animate mt-5 pt-md-5" data-scrollax=" properties: { translateY: '70%' }">
+					<div class="row">
+						<div class="col-md-7">
+							<p class="mb-4 pl-md-5 line" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">A small river named Duden flows by their place and supplies</p>
+						</div>
+					</div>
+					<h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Experienced for <br>Every Kinds of B2BSolution</h1>
+					<p><a href="#" class="btn btn-primary px-4 py-3">Read more</a></p>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<section class="ftco-intro">
+		<div class="container">
+			<div class="row justify-content-end">
+				<div class="col-md-7">
+					<div class="row no-gutters d-flex align-items-stretch">
+						
+						{% for top in serviceTop %}
+						<div class="col-md-4 d-flex align-self-stretch ftco-animate">
+							<div class="services-1">
+								<div class="line"></div>
+								<img src="{{ top.icon_v2.url }}" alt="" width="40", height="49">
+								<div class="media-body">
+									<h3 class="heading mb-3">{{ top.title }}</h3>
+								</div>
+							</div>      
+						</div>
+						{% endfor %}
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+<section class="ftco-section">
+ <div class="container">
+  <div class="row justify-content-center pb-5">
+
+    {% for p in AboutPromoTitle %}
+    <div class="col-lg-6 heading-section text-center ftco-animate">
+      <h2 class="mb-4">{{ p.promo_head_title }}  B2B Solution</span></h2>
+      <p>{{ p.promo_head_sub_content }}</p>
+    </div>
+    {% endfor %}
+
+  </div>
+
+  <div class="row">
+
+  {% for pl in AboutLeftPromo %}
+
+    {% if pl.plank_left == True %}
+   <div class="col-md-4">
+    <div class="services-2 text-center">
+     <div class="icon">
+      <img src="{{ pl.icon.url }}" width="60" height="73" alt="icon"/>
+    </div>
+    <div class="text">
+      <h3>{{ pl.title }}</h3>
+      <p>{{ pl.sub_content }}</p>
+    </div>
+  </div>
+  {% endif %}
+
+
+  {% endfor %}
+
+
+</div>
+
+{% for pl in AboutMedelPromo %}
+<div class="col-md-4">
+  <img src="{{ pl.image.url }}" width="350" height="330" class="img-fluid" alt="">
+</div>
+{% endfor %}
+
+
+{% for pl in AboutRightPromo %}
+
+{% if pl.plank_right == True %}
+<div class="col-md-4">
+  <div class="services-2 text-center">
+   <div class="icon">
+    <img src="{{ pl.icon.url }}" width="60" height="53" alt="icon"/>
+  </div>
+  <div class="text">
+    <h3>{{ pl.title }}</h3>
+    <p>{{ pl.sub_content }}</p>
+  </div>
+</div>
+{% endif %}
+
+{% endfor %}
+
+</div>
+</div>
+</div>
+</section>
+
+	<section class="ftco-counter img" id="section-counter">
+ <div class="container">
+  <div class="row no-gutters d-flex">
+
+  {% for ab in about %}
+  <div class="col-md-6 d-flex">
+    <div class="img d-flex align-self-stretch" style="background-image:url({{ ab.left_banner_image.url }});"></div>
+  </div>
+  {% endfor %}
+
+
+  {% for ab in about %}
+  <div class="col-md-6 p-3 pl-md-5 py-5 bg-primary">
+    <div class="row justify-content-start pb-3">
+      <div class="col-md-12 heading-section heading-section-white ftco-animate">
+        <h2 class="mb-4">{{ ab.title }} <span>B2BSolution</span></h2>
+        <p>{{ ab.sub_content }}</p>
+      </div>
+    </div>
+  {% endfor %} 
+
+
+    {% for abCount in about %}
+    <div class="row">
+      <div class="col-md-6 justify-content-center counter-wrap ftco-animate">
+        <div class="block-18 mb-4">
+          <div class="text">
+            <strong class="number" data-number="{{ abCount.Project_Complete }}">0</strong>
+            <span>Project Complete</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 justify-content-center counter-wrap ftco-animate">
+        <div class="block-18 mb-4">
+          <div class="text">
+            <strong class="number" data-number="{{ abCount.Happy_Clients }}">0</strong>
+            <span>Happy Clients</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 justify-content-center counter-wrap ftco-animate">
+        <div class="block-18 mb-4">
+          <div class="text">
+            <strong class="number" data-number="{{ abCount.Business_Partners }}">0</strong>
+            <span>Business Partners</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 justify-content-center counter-wrap ftco-animate">
+        <div class="block-18 mb-4">
+          <div class="text">
+            <strong class="number" data-number="{{ abCount.B2b_Consultant }}">0</strong>
+            <span>B2B Consultant</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+
+
+
+  </div>
+</div>
+</div>
+	</section>
+
+	<section class="ftco-section services-section">
+		<div class="container">
+			<div class="row justify-content-center pb-5">
+				<div class="col-md-6 heading-section text-center ftco-animate">
+					<h2 class="mb-4">Our Exclusive <span>B2B Solution</span> Services</h2>
+				</div>
+			</div>
+			<div class="row d-flex no-gutters">
+				{% for item in service %}
+				<div class="col-md-3 d-flex align-self-stretch ftco-animate">
+					<div class="media block-6 services d-block">
+					<div class="line"></div>
+						
+						{% comment %} <div class="icon"><span class="flaticon-web-programming"></span></div> {% endcomment %}
+						<img src="{{ item.icon_v2.url }}" alt="" width="60", height="73">
+
+					<div class="media-body">
+						<h3 class="heading mb-3">{{ item.title }}</h3>
+						<p>{{ item.details }}</p>
+					</div>
+				</div>  
+				{% endfor %}
+
+  </div>
+			</div>
+		</div>
+	</section>
+
+	<section class="ftco-section ftco-no-pt">
+		<div class="container">
+			<div class="row justify-content-center pb-5">
+				<div class="col-md-12 heading-section text-center ftco-animate">
+					<h2 class="mb-4">Our Strategic <span>Work</span></h2>
+				</div>
+			</div>
+			<div class="row">
+
+
+			{% for item in strategic_work %}
+				<div class="col-md-6 col-lg-3 ftco-animate">
+					<div class="project">
+					<div class="img">
+					<img src="{{ item.image.url }}" class="img-fluid" alt="b2b Template">
+					</div>
+					<div class="text text-center">
+					<span>{{ item.category.name }}</span>
+					<h3><a href="{{ item.get_absolute_url }}">{{ item.title }}</a></h3>
+					</div>
+				</div>
+				</div>
+			{% endfor %}
+
+
+			</div>
+		</div>
+	</section>
+
+	<section class="ftco-section bg-light ftco-faqs">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 order-md-last">
+					<div class="img img-video d-flex align-self-stretch align-items-center justify-content-center justify-content-md-center mb-4 mb-sm-0" style="background-image:url({% static 'images/about.jpg' %});">
+					</div>
+					<div class="d-flex mt-3">
+						<div class="img img-2 mr-md-2 w-100" style="background-image:url({% static 'images/about-1.jpg' %});"></div>
+						<div class="img img-2 ml-md-2 w-100" style="background-image:url({% static 'images/about-2.jpg' %});"></div>
+					</div>
+				</div>
+
+				<div class="col-lg-6">
+					<div class="heading-section mb-5 mt-5 mt-lg-0">
+						<h2 class="mb-3">Plans & Pricing</h2>
+					</div>
+					<div id="accordion" class="myaccordion w-100" aria-multiselectable="true">
+						
+						
+						{% for item in service_price %}
+
+						{% if item.draft == True %}
+						<div class="card">
+						<div class="card-header p-0" id="headingThree" role="tab">
+							<h2 class="mb-0">
+							<button href="#collapseThree" class="d-flex py-3 px-4 align-items-center justify-content-between btn btn-link" data-parent="#accordion" data-toggle="collapse" aria-expanded="false" aria-controls="collapseThree">
+							<p class="mb-0">{{ item.title }}</p>
+							<i class="fa" aria-hidden="true"></i>
+							</button>
+						</h2>
+						</div>
+						<div class="collapse" id="collapseThree" role="tabpanel" aria-labelledby="headingTwo">
+						<div class="card-body py-3 px-0">
+						<ol>
+							<li>{{ item.content|safe }}</li>
+
+						</ol>
+
+						<a href="{{ item.get_absolute_url }}" class="btn btn-primary">Contact</a>
+						<a href="" class="btn btn-primary">Order</a>
+						</div>
+						{% endif %}
+
+						{% endfor %}
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+<section class="ftco-section ftco-no-pb testimony-section" style="background-image: url({% static 'images/bg_1.jpg' %});">
+ <div class="overlay-1"></div>
+ <div class="container-fluid">
+  <div class="row justify-content-center mb-5 pb-3">
+    <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
+      <h2 class="mb-4">Our insights &amp; creative ideas</h2>
+    </div>
+  </div>
+  <div class="row ftco-animate">
+    <div class="col-md-12 testimonial">
+      <div class="carousel-testimony owl-carousel ftco-owl">
+        
+        
+        {% for itemActive in AboutTeam %}
+        <div class="item">
+          <div class="testimony-wrap d-flex align-items-stretch" style="background-image: url({{ itemActive.image.url }});">
+           <div class="overlay"></div>
+           <div class="text">
+             <div class="line"></div>
+             <p class="mb-4">{{ itemActive.worker_about }}</p>
+             <p class="name">{{ itemActive.user.username }}</p>
+             <span class="position">{{ itemActive.department.name }}</span>
+           </div>
+         </div>
+       </div>
+       {% endfor %}
+
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+	<section class="ftco-section bg-light">
+		<div class="container">
+			<div class="row justify-content-center mb-5 pb-3">
+				<div class="col-md-7 heading-section text-center ftco-animate">
+					<h2>Read our latest blog</h2>
+				</div>
+			</div>
+			<div class="row d-flex">
+
+				{% for post in blog_Post %}
+				<div class="col-md-4 d-flex ftco-animate">
+					<div class="blog-entry">
+						<a href="{{ post.get_absolute_url }}" class="block-20" style="background-image: url('{{ post.image.url }}');">
+						</a>
+						<div class="text mt-3 float-right d-block">
+							<div class="d-flex align-items-center pt-2 mb-4 topp">
+								<div class="one">
+									<span class="day">{{ post.timestamp|time:'j' }}</span>
+								</div>
+								<div class="two pl-1">
+									<span class="yr">{{ post.timestamp|time:'Y' }}</span>
+									<span class="mos">{{ post.timestamp|time:'l' }}</span>
+								</div>
+							</div>
+							<h3 class="heading"><a href="{{ post.get_absolute_url }}">{{ post.title|truncatewords:8 }}..</a></h3>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+
+
+			</div>
+		</div>
+	</section>
+	
+	<section class="ftco-appointment ftco-section img" style="background-image: url({% static 'images/bg_2.jpg' %});">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 half ftco-animate">
+					<h2 class="mb-4">Don't hesitate to contact us</h2>
+
+					<form action="#" method="POST" class="appointment">
+					{% csrf_token %}
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<input type="text" name="name" required class="form-control" placeholder="Your Name">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<input type="email" name="email" required class="form-control" placeholder="Email">
+								</div>
+							</div>
+
+							<div class="col-md-12">
+								<div class="form-group">
+									<input type="text" name="subject" required class="form-control" placeholder="Subject">
+								</div>
+							</div>
+
+
+							<div class="col-md-12">
+								<div class="form-group">
+									<input type="text" name="phone" class="form-control" placeholder="Phone">
+								</div>
+							</div>
+							<div class="col-md-12">
+								<div class="form-group">
+									<textarea name="message" required id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
+								</div>
+							</div>
+							<div class="col-md-12">
+								<div class="form-group">
+									<input type="submit" value="Send message" class="btn btn-primary py-3 px-4">
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+
+
+
+			</div>
+		</div>
+	</section>
+
+{% endblock content %}

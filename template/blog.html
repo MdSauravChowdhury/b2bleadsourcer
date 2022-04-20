@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="hero-wrap hero-wrap-2" style="background-image: url('{% static 'images/bg_3.jpg' %}');" data-stellar-background-ratio="0.5">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row no-gutters slider-text align-items-end justify-content-center">
+      <div class="col-md-9 ftco-animate pb-5 text-center">
+        <h1 class="mb-3 bread">Read our blog</h1>
+        <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="fa fa-chevron-right"></i></a></span> <span>Blog <i class="fa fa-chevron-right"></i></span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="ftco-section bg-light">
+  <div class="container">
+    <div class="row d-flex">
+
+
+{% for post in blog_post %}
+<div class="col-md-4 d-flex ftco-animate">
+ <div class="blog-entry">
+  <a href="{{ post.get_absolute_url }}" class="block-20" style="background-image: url('{{ post.image.url }}');">
+  </a>
+  <div class="text mt-3 float-right d-block">
+   <div class="d-flex align-items-center pt-2 mb-4 topp">
+    <div class="one">
+     <span class="day">{{ post.timestamp|time:'j' }}</span>
+   </div>
+   <div class="two pl-1">
+     <span class="yr">{{ post.timestamp|time:'Y' }}</span>
+     <span class="mos">{{ post.timestamp|time:'l' }}</span>
+   </div>
+ </div>
+ <h3 class="heading"><a href="{{ post.get_absolute_url }}">{{ post.title|truncatewords:7 }}...</a></h3>
+</div>
+{% endfor %}
+
+</div>
+</div>
+
+</div>
+
+<div class="row mt-5">
+  <div class="col text-center">
+    <div class="block-27">
+      <ul>
+        <li><a href="#">&lt;</a></li>
+        <li class="active"><span>1</span></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li><a href="#">&gt;</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+
+{% endblock content %}

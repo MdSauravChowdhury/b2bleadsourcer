@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="hero-wrap hero-wrap-2" style="background-image: url('{% static 'images/bg_3.jpg' %}');" data-stellar-background-ratio="0.5">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row no-gutters slider-text align-items-end justify-content-center">
+      <div class="col-md-9 ftco-animate pb-5 text-center">
+        <h1 class="mb-3 bread">Case Study</h1>
+        <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="fa fa-chevron-right"></i></a></span> <span>Case Study <i class="fa fa-chevron-right"></i></span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="ftco-section">
+ <div class="container">
+  <div class="row justify-content-center pb-5">
+    <div class="col-md-12 heading-section text-center ftco-animate">
+      <h2 class="mb-4">Our Strategic <span>Work</span></h2>
+    </div>
+  </div>
+  <div class="row">
+
+
+    {% for item in strategic_work %}
+   <div class="col-md-6 col-lg-3 ftco-animate">
+    <div class="project">
+     <div class="img">
+      <img src="{{ item.image.url }}" class="img-fluid" alt="b2b Template">
+    </div>
+    <div class="text text-center">
+      <span>{{ item.category.name }}</span>
+      <h3><a href="{{ item.get_absolute_url }}">{{ item.title }}</a></h3>
+    </div>
+  </div>
+  </div>
+  {% endfor %}
+
+</div>
+
+
+</div>
+</div>
+<div class="row mt-5">
+  <div class="col text-center">
+    <div class="block-27">
+      <ul>
+        <li><a href="#">&lt;</a></li>
+        <li class="active"><span>1</span></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li><a href="#">&gt;</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+
+{% endblock %}

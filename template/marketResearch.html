@@ -1,0 +1,299 @@
+{% extends 'base.html' %}
+ {% load static %}
+ 
+ {% block style %}
+ <style>
+
+  section.ftco-section.services-section {
+    background-color:#FF5B00;
+    
+}
+
+.contact-wrap {
+    background: #fbf3f3;
+}
+
+.container > h3 {
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+ </style>
+ {% endblock style %}
+
+ {% block content %}
+
+<section
+  class="hero-wrap hero-wrap-2"
+  style="background-image: url('{% static 'images/bg_3.jpg' %}')"
+  data-stellar-background-ratio="0.5"
+>
+  <div class="overlay"></div>
+  <div class="container">
+    <div
+      class="row no-gutters slider-text align-items-end justify-content-center"
+    >
+      <div class="col-md-9 ftco-animate pb-5 text-center">
+        <h1 class="mb-3 bread">Lead Generation</h1>
+        <p class="breadcrumbs">
+          <span class="mr-2"
+            ><a href="{% url 'index' %}"
+              >Home <i class="fa fa-chevron-right"></i></a
+          ></span>
+          <span>Lead Generation <i class="fa fa-chevron-right"></i></span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="detail">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7">
+
+        {% for lead in lead %}
+          {% if lead.year_in_school == "DEWR" %}
+          <div>{{ lead.description|safe }}</div>
+          {% else %}
+          <div>Not Found</div>
+          {% endif %}
+        {% endfor %}
+        
+      </div>
+      <div class="col-md-5">
+        <div class="contact-wrap w-100 p-md-5 p-4">
+          <h3 class="mb-4">REQUEST A QUOTE</h3>
+          <form
+            method="POST"
+            id="contactForm"
+            name="contactForm"
+            class="contactForm"
+          >
+            {% csrf_token %}
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="label" for="name">Full Name</label>
+                  <input
+                    type="text"
+                    required
+                    class="form-control"
+                    name="name"
+                    id="name"
+                    placeholder="Name"
+                  />
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="label" for="email">Email Address</label>
+                  <input
+                    type="email"
+                    required
+                    class="form-control"
+                    name="email"
+                    id="email"
+                    placeholder="Email"
+                  />
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label class="label" for="subject">Subject</label>
+                  <input
+                    type="text"
+                    required
+                    class="form-control"
+                    name="subject"
+                    id="subject"
+                    placeholder="Subject"
+                  />
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label class="label" for="phone">Phone</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="phone"
+                    id="phone"
+                    placeholder="Phone"
+                  />
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label class="label" for="#">Message</label>
+                  <textarea
+                    name="message"
+                    required
+                    class="form-control"
+                    id="message"
+                    cols="30"
+                    rows="4"
+                    placeholder="Message"
+                  ></textarea>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="form-group">
+                  <input
+                    type="submit"
+                    value="Send Message"
+                    class="btn btn-primary"
+                  />
+                  <div class="submitting"></div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="ftco-section services-section">
+  <div class="container">
+    <div class="row justify-content-center pb-5">
+      <div class="col-md-6 heading-section text-center ftco-animate">
+        <h2 class="mb-4">How It Works</h2>
+      </div>
+    </div>
+    <div class="row d-flex no-gutters">
+
+      <div class="col-md-3 d-flex align-self-stretch ftco-animate">
+        <div class="media block-6 services d-block">
+          <div class="line"></div>
+
+          <!-- <div class="icon"><span class="flaticon-web-programming"></span></div> -->
+          <img src="../static/images/how-it-work/lead-serv.png" alt="icon" width="57" , height="57" />
+
+
+          <div class="media-body">
+            <h3 class="heading mb-3">01. Understand</h3>
+            <p>Analyze your business requirements diligently to design a business development program.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 d-flex align-self-stretch ftco-animate">
+        <div class="media block-6 services d-block">
+          <div class="line"></div>
+
+          <!-- <div class="icon"><span class="flaticon-web-programming"></span></div> -->
+          <img src="../static/images/how-it-work/Icon.png" alt="icon" width="57" , height="57" />
+
+
+          <div class="media-body">
+            <h3 class="heading mb-3">02. Research</h3>
+            <p>Develop an Account Based Outreach Program to gather the best information for your range of sources.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 d-flex align-self-stretch ftco-animate">
+        <div class="media block-6 services d-block">
+          <div class="line"></div>
+
+          <!-- <div class="icon"><span class="flaticon-web-programming"></span></div> -->
+          <img src="../static/images/how-it-work/market-serv.png" alt="icon" width="57" , height="57" />
+
+
+          <div class="media-body">
+            <h3 class="heading mb-3">03. Analyze</h3>
+            <p>We analyze the research that deliver quality leads and help you meet your aggressive sales goals.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 d-flex align-self-stretch ftco-animate">
+        <div class="media block-6 services d-block">
+          <div class="line"></div>
+
+          <!-- <div class="icon"><span class="flaticon-web-programming"></span></div> -->
+          <img src="../static/images/how-it-work/market-serv.png" alt="icon" width="57" , height="57" />
+
+
+          <div class="media-body">
+            <h3 class="heading mb-3">04. Grow</h3>
+            <p> We establish a sales process that grow your pipeline with qualified prospects that actually close.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 d-flex align-self-stretch ftco-animate">
+        <div class="media block-6 services d-block">
+          <div class="line"></div>
+
+          <!-- <div class="icon"><span class="flaticon-web-programming"></span></div> -->
+          
+          <img src="../static/images/how-it-work/builiding-serv.png" alt="icon" width="57" , height="57" />
+          
+
+          <div class="media-body">
+            <h3 class="heading mb-3">05. Success</h3>
+            <p>We further provide you amplified information to ensure you gain competitive edge in the long run.</p>
+          </div>
+        </div>
+      </div>
+
+    
+    </div>
+  </div>
+</section>
+	
+<section class="ftco-section ftco-no-pb testimony-section" style="background-image: url({% static 'images/bg_1.jpg' %});">
+  <div class="overlay-1"></div>
+  <div class="container-fluid">
+   <div class="row justify-content-center mb-5 pb-3">
+     <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
+       <h2 class="mb-4">Our Clients Feedback</h2>
+     </div>
+   </div>
+   <div class="row ftco-animate">
+     <div class="col-md-12 testimonial">
+       <div class="carousel-testimony owl-carousel ftco-owl">
+         
+        {% for itemActive in feedback %}
+        {% if itemActive.active == True %}
+          <div class="item">
+            <div class="testimony-wrap d-flex align-items-stretch" style="background-image: url({{ itemActive.image.url }});">
+              <div class="overlay"></div>
+              <div class="text">
+                <div class="line"></div>
+                <p class="mb-4">{{ itemActive.message|safe }}</p>
+                <p class="name">{{ itemActive.name }}</p>
+                <span class="position">{{ itemActive.work_category.name }}</span>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+ 
+ 
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </section>
+<br>
+<br>
+ <section id="company">
+   <div class="container">
+     <h3>Some of Our Customers who Augmented Their Sales with MarketJoy    </h3>
+     <div class="row">
+
+      {% for corporate in corporate %}
+        {% if corporate.active == True %}
+          <div class="col-md-2">
+            <img src="{{ corporate.image.url }}" width="170" height="100" alt="clint">
+          </div>
+        {% endif %}
+      {% endfor %}
+     </div>
+   </div>
+ </section>
+ <br>
+<br>
+
+{% endblock content %}
